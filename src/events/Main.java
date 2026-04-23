@@ -64,18 +64,37 @@ public class Main {
 
 	public static void displayHome(TaskController tc, EventController ec) {
 		System.out.println("Que souhaitez vous faire ?");
+		
+		System.out.println("====TÂCHES====");
 		System.out.println("1- Creer une nouvelle tache");
-		System.out.println("2- Creer un nouvel événement");
 		System.out.println("3- Modifier une tache");
-		System.out.println("4- Modifier un événement");
 		System.out.println("5- Supprimer une tache");
-		System.out.println("6- Supprimer un événement");
 		System.out.println("7- Terminer une tâche");
 		System.out.println("8- Terminer une occurence de tâche réccurente");
+//		System.out.println("==============");
+		
+		System.out.println();
+		
+		System.out.println("====ÉVÉNEMENTS====");
+		System.out.println("2- Creer un nouvel événement");
+		System.out.println("4- Modifier un événement");
+		System.out.println("6- Supprimer un événement");
+//		System.out.println("==============");
+		
+		System.out.println();
+		
+		System.out.println("====UTILISATION====");
 		System.out.println("9- Voir les taches et événements à venir");
 		System.out.println("10- Rafraichir");
-		System.out.println("51- Changer fichier de notification");
 		System.out.println("100- Quitter");
+		
+		System.out.println();
+		
+		System.out.println("====PARAMETRES====");
+		System.out.println("51- Changer fichier de notification");
+//		System.out.println("==================");
+		
+		System.out.println();
 
 		displayPermanentsReminds(tc, ec);
 	}
