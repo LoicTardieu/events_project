@@ -2,6 +2,9 @@ package events.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,6 +16,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import javax.sound.SoundClip;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class UserController {
 	
@@ -71,6 +76,10 @@ public class UserController {
 			break;
 		case 10://Refresh
 			isGoodSaisieInt= true;
+			break;
+		case 11://Change notification file
+			isGoodSaisieInt= true;
+			this.changeNotificationFile();
 			break;
 		case 100://Exit
 			System.out.println("A bientot");
@@ -848,6 +857,89 @@ public class UserController {
 			System.out.println("Veuillez saisir une option valide");
 		}
 		return stringInsertReccurence;
+	}
+	
+	
+	public void changeNotificationFile() {
+		Scanner scanner= new Scanner(System.in);
+		int nbNotificationChange= 0;
+		File fileNotification;
+		
+		System.out.println("Quelle notification voulez vous modifier ?");
+		System.out.println("1: Notification de la liste permanente");
+		System.out.println("2: Notification de rappel");
+		System.out.println("3: Notification de maintenant");
+		System.out.println("4: Notification de sortie d'application");
+		
+		try {
+			nbNotificationChange= scanner.nextInt();
+			
+		}catch (InputMismatchException e) {
+			System.out.println("Veuillez saisir un nombre");
+			e.printStackTrace();
+		}
+		
+		fileNotification= this.selectNotificationFile();
+		if (fileNotification!= null) {
+			switch (nbNotificationChange) {
+			case 1:
+				try {
+					Files.copy(Paths.get(fileNotification.getPath()), Paths.get("assets/notification_default.wav"), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					System.out.println("Impossible de changer le fichier de notification: UserController/changeNotificationFile");
+					e.printStackTrace();
+				}
+				break;
+			case 2:
+				try {
+					Files.copy(Paths.get(fileNotification.getPath()), Paths.get("assets/notification.wav"), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					System.out.println("Impossible de changer le fichier de notification: UserController/changeNotificationFile");
+					e.printStackTrace();
+				}
+				break;
+			case 3:
+				try {
+					Files.copy(Paths.get(fileNotification.getPath()), Paths.get("assets/notification_now.wav"), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					System.out.println("Impossible de changer le fichier de notification: UserController/changeNotificationFile");
+					e.printStackTrace();
+				}
+				break;
+			case 4:
+				try {
+					Files.copy(Paths.get(fileNotification.getPath()), Paths.get("assets/exit.wav"), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					System.out.println("Impossible de changer le fichier de notification: UserController/changeNotificationFile");
+					e.printStackTrace();
+				}
+				break;
+			default:
+				break;
+			}
+			
+		}
+	}
+	
+	
+	public File selectNotificationFile() {
+		File file= null;
+		
+		JFileChooser chooser = new JFileChooser();
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter("WAV Files", "wav");
+	    chooser.setFileFilter(filter);
+	    int returnVal = chooser.showOpenDialog(chooser);
+	    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
+	       if(filter.accept(chooser.getSelectedFile())) {
+	    	   file= chooser.getSelectedFile();
+	       }
+	       else {
+			System.out.println("Séléction non autorisé");
+	       }
+	    }
+	    
+		return file;
 	}
 
 
