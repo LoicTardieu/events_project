@@ -74,7 +74,7 @@ public class Main {
 		System.out.println("8- Terminer une occurence de tâche réccurente");
 		System.out.println("9- Voir les taches et événements à venir");
 		System.out.println("10- Rafraichir");
-		System.out.println("11- Changer fichier de notification");
+		System.out.println("51- Changer fichier de notification");
 		System.out.println("100- Quitter");
 
 		displayPermanentsReminds(tc, ec);

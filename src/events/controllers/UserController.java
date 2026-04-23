@@ -77,7 +77,7 @@ public class UserController {
 		case 10://Refresh
 			isGoodSaisieInt= true;
 			break;
-		case 11://Change notification file
+		case 51://Change notification file
 			isGoodSaisieInt= true;
 			this.changeNotificationFile();
 			break;
