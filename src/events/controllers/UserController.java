@@ -66,15 +66,15 @@ public class UserController {
 			isGoodSaisieInt= true;
 			this.terminateTask(st);
 			break;
-		case 8://Terminate an occurrence of recurring task
+		case 9://Terminate an occurrence of recurring task
 			isGoodSaisieInt= true;
 			this.terminateOccurrenceOfOccuringTask(st);
 			break;
-		case 9://Read DB
+		case 10://Read DB
 			isGoodSaisieInt= true;
 			this.ReadDB(st);
 			break;
-		case 10://Refresh
+		case 11://Refresh
 			isGoodSaisieInt= true;
 			break;
 		case 51://Change notification file
