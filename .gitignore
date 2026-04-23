@@ -1,4 +1,6 @@
 /bin/
 /.settings/
+/src/bdd/
 .classpath
 .project
+*.jar
