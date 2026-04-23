@@ -81,6 +81,10 @@ public class UserController {
 			isGoodSaisieInt= true;
 			this.changeNotificationFile();
 			break;
+		case 52://Set notification files by default
+			isGoodSaisieInt= true;
+			this.setDefaultNotificationFiles();
+			break;
 		case 100://Exit
 			System.out.println("A bientot");
 			SoundClip sound= null;
@@ -940,6 +944,20 @@ public class UserController {
 	    }
 	    
 		return file;
+	}
+	
+	
+	public void setDefaultNotificationFiles() {
+		File notifsDirectory= new File("assets/defaults_notifications_songs");
+		File[] notificationFiles= notifsDirectory.listFiles();
+		for(int i= 0; i< notificationFiles.length; i++) {
+			try {
+				Files.copy(Paths.get(notificationFiles[i].getPath()), Paths.get("assets/" + notificationFiles[i].getName()), StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				System.out.println("Impossible de changer le fichier de notification: UserController/setDefaultNotificationFiles");
+				e.printStackTrace();
+			}
+		}
 	}
 
 

@@ -90,6 +90,7 @@ public class Main {
 		
 		System.out.println("====PARAMETRES====");
 		System.out.println("51- Changer fichier de notification");
+		System.out.println("52- Remettre fichiers de notification par défaut");
 		
 		System.out.println();
 
