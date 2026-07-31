@@ -21,7 +21,8 @@ public class ReminderTask extends TimerTask {
 
 		SoundClip sound= null;
 		try {
-			co= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\wotso\\Desktop\\codage\\projets_info\\java\\events\\src\\bdd\\events_db.db");
+			String projectPath = System.getProperty("user.dir");
+			co= DriverManager.getConnection("jdbc:sqlite:" + projectPath + "\\src\\bdd\\events_db.db");
 			st= co.createStatement();
 			stUpdate= co.createStatement();
 		}catch (SQLException e) {

@@ -22,7 +22,8 @@ public class AlterDBRecurringTasks extends TimerTask{
 		ResultSet res= null;
 
 		try {
-			co= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\wotso\\Desktop\\codage\\projets_info\\java\\events\\src\\bdd\\events_db.db");
+			String projectPath = System.getProperty("user.dir");
+			co= DriverManager.getConnection("jdbc:sqlite:" + projectPath + "\\src\\bdd\\events_db.db");
 			co.setAutoCommit(false);
 			st= co.createStatement();
 			stUpdate= co.createStatement();

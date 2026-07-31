@@ -104,7 +104,8 @@ public class Main {
 		Connection co= null;
 		Statement st= null;
 		try {
-			co= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\wotso\\Desktop\\codage\\projets_info\\java\\events\\src\\bdd\\events_db.db");
+			String projectPath = System.getProperty("user.dir");
+			co= DriverManager.getConnection("jdbc:sqlite:" + projectPath + "\\src\\bdd\\events_db.db");
 		}catch (SQLException e) {
 			System.out.println("Impossible d'établir la connection à la BDD: Main/liste parmanente");
 			System.out.println(e.getMessage());
