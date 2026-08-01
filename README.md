@@ -1,8 +1,4 @@
 NOTICE : 
-Note that i bring the .classpath file to the project, witch is a bad practice. 
-I did that to avoid you install a JDBC driver an plug in into the .classpath file. 
-This app is ready to run (click and go). 
-
 The app is not tested on Linux and MacOS
 
 ------------------------------------------------------
